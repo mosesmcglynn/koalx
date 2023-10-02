@@ -1,0 +1,10 @@
+hm = int(input("Enter number: "))
+k = 0
+hh = len(str(hm))+1
+for line in range(1, hm+1):
+    space = ' '*(((hm*(hh))) - (line*(hh)))
+    print(space, end='')
+    if line == 1:
+        print(k:=str(line).center(hh))
+    else:
+        print(k:=f"{str(line).center(hh)}{str(k).center(hh)}{str(line).center(hh)}")
