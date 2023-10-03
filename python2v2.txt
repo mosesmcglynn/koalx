@@ -1,0 +1,18 @@
+row = int(5)
+hm = row
+hh = ""
+ju = ""
+lrow = len(str('1')) + 1
+ki = ""
+for i in range(1, (row * 2)):
+    lj = row + 1
+    for n in range(~(row - abs(i - row)) + 1, (row - abs(i - row)) + 1):
+        if n == 1 or n == 0:
+            continue
+        if n == ~(row - abs(i - row)) + 1:
+            hh += str(abs(n))
+        else:
+            hh += str(abs(n)).rjust(lrow, '-')
+
+    print(str(hh).center((((lrow * 2) * row) + 1) - 4, '-'))
+    hh = ""
