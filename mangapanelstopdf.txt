@@ -1,0 +1,122 @@
+from io import BytesIO
+import requests
+import os
+from PIL import Image
+from reportlab.lib.pagesizes import A4
+from reportlab.pdfgen import canvas
+import tempfile
+from urllib.request import urlopen
+from PIL import ImageFile
+
+
+
+divider = "".center(50, '-').center(52, '+')
+title = "Manga Panels Scraper".center(50).center(52, '|')
+title_banner = f'{divider}\n{title}\n{divider}'
+
+def startProgram():
+    print("\033[0H\033[0J")
+    choicesList = ['Enter Link', 'Exit']
+    choices = ''
+    for i in choicesList:
+        choices += f'[{choicesList.index(i) + 1}] - {i}'.ljust(50).center(52, '|')
+        if i != choicesList[-1]:
+            choices += '\n'
+    print(title_banner, choices, divider, sep='\n')
+    while True:
+        theChoice = input('Enter your choice: ')
+        match theChoice:
+            case '1':
+                return startScraping()
+            case '4':
+                return
+            case _:
+                continue
+
+def startScraping():
+    print("\033[0H\033[0J")
+    print(title_banner)
+    link = input('Enter your link: ')
+    response = requests.get(link)
+    content = response.text
+    cur_chapter = content.split('vm.CurChapter = ')[1].split(';')[0]
+    index_name = content.split('vm.IndexName = "')[1].split('";')[0]
+    cur_path_name = content.split('vm.CurPathName = "')[1].split('";')[0]
+    chapter = cur_chapter.split('"Chapter":"')[1].split('"')[0]
+    if chapter[-1] == '0':
+        chapter = chapter[1:-1]
+    else:
+        chapter = int(chapter[1:])/10.0
+    pages = cur_chapter.split('"Page":"')[1].split('"')[0]
+
+    generatePDF(f'{pages}', cur_path_name, f'{index_name}', chapter)
+
+def generatePDF(pages, cur_path_name, index_name, chapter):
+    c = canvas.Canvas(f'{index_name}/{chapter}.pdf', pagesize=A4)
+    for i in range(int(pages)):
+        link = f'https://{cur_path_name}/manga/{index_name}/{chapter}-{("0"*(3-len(str(i+1))))+str(i+1)}.png'
+        print((link))
+        try:
+            response = requests.get(link)
+            response.raise_for_status()  # Check if the request was successful
+
+            if not os.path.exists(f'{index_name}'):
+                os.makedirs(f"{index_name}")
+                if not os.path.exists(f'{index_name}/{chapter}.pdf'):
+                    open(f'{index_name}/{chapter}.pdf', 'x')
+            with open(f'{index_name}/{chapter}.pdf', 'wb') as file:
+                image_bytes = response.content
+                temp_image = tempfile.NamedTemporaryFile(suffix=".png", delete=False)
+                temp_image.write(image_bytes)
+                temp_image.close()
+                image = Image.open(temp_image.name)
+
+                page_width, page_height = A4
+
+                print(page_width, page_height)
+
+                # Get the dimensions of the image
+                image_width, image_height = image.size
+                print(image_width, image_height)
+
+                # Calculate the scaling factor to fit the image within the page
+                scale = min(page_width / image_width, page_height / image_height)
+
+                # Calculate the new dimensions of the image
+                new_width = image_width * scale
+                new_height = image_height * scale
+
+                # Calculate the position to center the image on the page
+                x = (page_width - new_width) / 2
+                y = (page_height - new_height) / 2
+
+                height = (page_width / image_width) * image_height
+                width = page_width
+                if height > page_height:
+                    height = page_height
+                    width = (page_height / image_height) * image_width
+
+                c.drawImage(temp_image.name, x, y, width=width, height=height)
+                c.showPage()
+            print(f"Image downloaded and saved as {f'{index_name}/{chapter}.pdf'}")
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+    c.save()
+
+'''def getsizes(uri):
+    try:
+        response = requests.get(uri, stream=True)
+        if response.status_code == 200:
+            # Read only the first few bytes to get image header
+            first_bytes = next(response.iter_content(16))
+            # Open the image header with Pillow
+            image = Image.open(BytesIO(first_bytes))
+            width, height = image.size
+            print(f"Image width: {width} pixels, Image height: {height} pixels")
+        else:
+            print(f"Failed to fetch the image. Status code: {response.status_code}")
+    except requests.exceptions.RequestException as e:
+        print(f"An error occurred: {e}")
+'''
+
+startProgram()
