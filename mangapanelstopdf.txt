@@ -103,20 +103,4 @@ def generatePDF(pages, cur_path_name, index_name, chapter):
             print(f"An error occurred: {e}")
     c.save()
 
-'''def getsizes(uri):
-    try:
-        response = requests.get(uri, stream=True)
-        if response.status_code == 200:
-            # Read only the first few bytes to get image header
-            first_bytes = next(response.iter_content(16))
-            # Open the image header with Pillow
-            image = Image.open(BytesIO(first_bytes))
-            width, height = image.size
-            print(f"Image width: {width} pixels, Image height: {height} pixels")
-        else:
-            print(f"Failed to fetch the image. Status code: {response.status_code}")
-    except requests.exceptions.RequestException as e:
-        print(f"An error occurred: {e}")
-'''
-
 startProgram()
