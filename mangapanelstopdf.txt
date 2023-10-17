@@ -8,8 +8,8 @@ import tempfile
 from urllib.request import urlopen
 from PIL import ImageFile
 
-divider = "".center(50, '-').center(52, '+')
-title = "Manga Panels Scraper".center(50).center(52, '|')
+divider = "".center(100, '═')
+title = "Manga Panels Scraper".center(100)
 title_banner = f'{divider}\n{title}\n{divider}'
 
 
@@ -18,7 +18,7 @@ def startProgram():
     choicesList = ['Enter Link', 'Exit']
     choices = ''
     for i in choicesList:
-        choices += f'[{choicesList.index(i) + 1}] - {i}'.ljust(50).center(52, '|')
+        choices += f'[{choicesList.index(i) + 1}] - {i}'.ljust(100)
         if i != choicesList[-1]:
             choices += '\n'
     print(title_banner, choices, divider, sep='\n')
@@ -27,7 +27,7 @@ def startProgram():
         match theChoice:
             case '1':
                 return startScraping()
-            case '4':
+            case '2':
                 return
             case _:
                 continue
@@ -48,7 +48,6 @@ def startScraping():
     else:
         chapter = int(chapter[1:]) / 10.0
     pages = cur_chapter.split('"Page":"')[1].split('"')[0]
-
     generatePDF(f'{pages}', cur_path_name, f'{index_name}', chapter)
 
 
@@ -120,14 +119,18 @@ def generatePDF(pages, cur_path_name, index_name, chapter):
             print(f"An error occurred: {e}")
         print(progress_bar(i, int(pages)), end='')
     c.save()
+    print(f'\033[1E\033[1m\033[42mDownload complete!\033[0m Saved to Manga-Panels/{index_name}/{chapter}.pdf')
+    again = input('Do you want to download another chapter? [Y/N]: ')
+    if again.lower() == 'y':
+        startScraping()
+    else:
+        return
 
 
 def progress_bar(progress, total):
-    done_bar = '■'*int(round(((progress/total)*100)/2))
-    rem_bar = '─'*int(round((100-(progress/total)*100)/2))
-    print(f'\r|{done_bar}{rem_bar}|', end=' ')
-    print(f'{float(progress / total) * 100:.2f}%', end='')
-    return
+    done_bar = '\033[32;1m■\033[0m'*int(round(((progress/total)*100)))
+    rem_bar = '■'*int(round((100-(progress/total)*100)))
+    return f'\r{done_bar}{rem_bar} {float(progress / total) * 100:.2f}%'
 
 
 
