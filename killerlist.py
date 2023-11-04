@@ -15,7 +15,7 @@ def get_id():
         else:
             last_id = targets[-1].split('||')[0]
             return int(last_id) + 1
-D
+
 def get_widest_data():
     max_id = 4
     max_name = 6
@@ -54,6 +54,7 @@ def createdata():
 
 def add_target():
     header()
+    createdata()
     id = get_id()
     name = input('Enter your target name: ')
     age = input('Enter your target age: ')
@@ -76,8 +77,8 @@ def view_targets():
         for i in targets:
             datas = i.split('||')
             print(datas[0].ljust(length[0]), datas[1].ljust(length[1]), datas[2].ljust(length[2]), datas[3].ljust(length[3]), datas[4].ljust(length[4]), datas[5].ljust(length[5]), sep='|')
-
-    return 'success'
+        print(''.ljust(length[0], '-'), ''.ljust(length[1], '-'), ''.ljust(length[2], '-'), ''.ljust(length[3], '-'), ''.ljust(length[4], '-'), ''.ljust(length[5], '-'), sep='+')
+    return ''
 
 def edit_target():
     header()
@@ -128,7 +129,6 @@ def remove_target():
 
 while True:
     header()
-    createdata()
     choices = ['Add Target', 'View Targets', 'Edit Target Info', 'Remove Target', 'Exit']
     for i in choices:
         print(f'[{choices.index(i)+1}]', i)
