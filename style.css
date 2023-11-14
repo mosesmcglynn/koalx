@@ -1,0 +1,232 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+}
+
+nav {
+    background-color: #000;
+    color: #fff;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px;
+}
+
+#topnav {
+    list-style: none;
+    display: flex;
+    border: 1px solid #fff;
+    float: right;
+}
+
+#toggle {
+    background-color: transparent;
+    color: #fff;
+    border: none;
+    display: none;
+    transform: scale(.5);
+}
+
+svg g rect {
+    fill: #fff;
+}
+
+main.menuMain {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.mainContent main nav ul {
+    width: 100vw;
+    padding: 0 50px;
+    align-items: center;
+}
+
+.mainContent main nav ul li {
+    font-family: 'Anton', sans-serif
+}
+
+#menuHeader {
+    width: 100vw;
+    max-width: 800px;
+    overflow: scroll;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+#menu #menuHeader ul {
+    display: flex;
+    list-style: none;
+    flex-direction: row;
+    justify-content: space-between;
+    font-family: 'Anton', sans-serif;
+}
+
+#menu #menuHeader ul li.active {
+    border-bottom: 3px solid red;
+}
+
+#menu #menuHeader ul li {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    min-width: 150px;
+    text-align: center;
+    cursor: pointer;
+}
+
+#menuContent {
+    display: block;
+}
+
+.menuTitle {
+    font-size: 1.5rem;
+    font-weight: 700;
+    padding: 10px;
+    text-align: center;
+    font-family: 'Anton', sans-serif;
+}
+
+.menuTitle p {
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 10px;
+    text-align: center;
+
+}
+
+#menuContainer {
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+    margin: 10px;
+}
+
+#menuCategories {
+    font-size: 20px;
+    font-family: 'Anton', sans-serif;
+    padding: 0 30px;
+}
+
+#menuCategories ul li {
+    cursor: pointer;
+    padding: 20px 0;
+}
+
+#menuCategories ul li.active {
+    border-bottom: 3px solid red;
+}
+
+#menuItems {
+    font-size: 1.2rem;
+    font-weight: 500;
+    padding: 10px;
+    border: groove;
+}
+
+li h2 {
+    font-family: 'Anton', sans-serif;
+    font-size: 20px;
+    letter-spacing: 2px;
+}
+
+.title-3vmin {
+    font-size: 3vmin;
+    font-family: 'Anton', sans-serif;
+}
+
+.flex-cent-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-row-space {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.img-cir {
+    object-fit: cover;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.bor-2-w {
+    border: 2px solid white;
+}
+
+.scale-20-res {
+    width: 20vmin;
+    height: 20vmin;
+}
+
+.flex-row-space-resp {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.flex-cent-col-resp {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.jc-sa {
+    justify-content: space-around;
+
+}
+
+@media screen and (max-width: 768px) {
+    #topnav {
+        display: none;
+    }
+
+    #toggle {
+        display: inline-block;
+    }
+
+    .flex-row-space-resp {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .flex-cent-col-resp {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+}
