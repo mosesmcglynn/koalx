@@ -185,74 +185,10 @@ li h2 {
     display: none;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-.title-3vmin-resp {
-    font-size: 3vmin;
-    font-family: 'Anton', sans-serif;
-}
-
-.flex-cent-col {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.flex-row-space-resp {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-.img-cir {
-    object-fit: cover;
-    border-radius: 50%;
-    overflow: hidden;
-}
-
-.bor-1 {
-    border: 2px solid white;
-}
-
-.scale-resp-1 {
-    width: 20vmin;
-    height: 20vmin;
-}
-
-.flex-row-space-resp {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-.flex-cent-col-resp {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-
-
-
-
-.jc-sa {
-    justify-content: space-around;
-
-}
-
-
 @media screen and (max-width: 768px) {
+    #topnav {
+        padding: 40px 0;
+    }
     #topnav.navclose {
         opacity: 0;
         position: absolute;
@@ -262,9 +198,10 @@ li h2 {
         flex-direction: column;
         position: fixed;
         top: 0;
+        left: -100%;
         width: 100vw;
         height: 100vh;
-        background-color: rgba(0, 0, 0, .8);
+        background-color: transparent;
     }
 
     #topnav.navopen {
@@ -272,9 +209,10 @@ li h2 {
         flex-direction: column;
         position: absolute;
         top: 0;
+        left: 0;
         width: 100%;
         height: 100vh;
-        background-color: rgba(0, 0, 0, .8);
+        background-color: rgba(0, 0, 0, 0.8);
         transition: all .5s ease-in-out;
         transform: translate(0, 0);
     }
@@ -290,29 +228,6 @@ li h2 {
         display: inline-block;
         position: fixed;
         right: 10px;
-    }
-
-    .flex-row-space-resp {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-    }
-
-    .flex-cent-col-resp {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-        align-items: center;
-    }
-
-    .scale-resp-1 {
-        width: 50vmin;
-        height: 50vmin;
-    }
-
-    .title-3vmin-resp {
-        font-size: 10vmin;
-        font-family: 'Anton', sans-serif;
     }
 
     .open-nav-toggle svg g rect:nth-child(1) {
