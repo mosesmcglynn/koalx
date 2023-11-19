@@ -104,6 +104,7 @@ header>div>.content {
     text-align: center;
     color: rgb(25, 0, 255);
     font-size: min(5vmin, 40px);
+    padding: 20px;
 }
 
 main {
