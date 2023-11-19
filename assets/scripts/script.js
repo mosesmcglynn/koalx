@@ -7,10 +7,6 @@ toggleNav.addEventListener("click", function() {
     toggleNav.classList.toggle("open");
 });
 
-document.addEventListener("scroll", function(e) {
-    if (window.scrollY > 100) {
-        nav.classList.add("scrolled");
-    }else{
-        nav.classList.remove("scrolled");
-    }
+document.addEventListener("scroll", function() {
+    window.scrollY > 50 ? nav.classList.add("scrolled") : nav.classList.remove("scrolled");
 });
