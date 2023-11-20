@@ -63,11 +63,11 @@
 }
 
 .fs-1 {
-    font-size: 40px;
+    font-size: calc((2.8 - 1) * 1.2vmin + 1rem);
 }
 
 .fs-2 {
-    font-size: 25px;
+    font-size: calc((2.2 - 1) * 1.2vmin + 1rem);
     margin: 10px 0;
 }
 
