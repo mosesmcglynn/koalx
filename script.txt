@@ -1,0 +1,21 @@
+background image:
+dito gagamit tayo ng url to specify our image na gagamitin.
+
+no-repeat:
+The background-image is not repeated. The image will only be shown once	
+
+repeat-x:
+The background image is repeated only horizontally or in x axis
+
+repeat-y:
+The background image is repeated only vertically or in y axis
+
+cover:
+Resizes the background image to cover the entire container
+
+contain:
+Resizes the background image to make sure the image is fully visible	
+
+length:
+Sets the width and height of the background image
+
