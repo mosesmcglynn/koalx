@@ -129,9 +129,8 @@ header .title{
 }
 
 header .motto{
-    font-size: min(5vmin, 40px);
+    font-size: min(max(7vmin, 30px), 50px);
     padding: 20px;
-
 }
 
 main {
