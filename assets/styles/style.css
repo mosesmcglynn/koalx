@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Aclonica&display=swap');
 
 
 
@@ -8,7 +7,8 @@
     padding: 0;
     box-sizing: border-box;
     list-style: none;
-    text-decoration: none;
+    /* text-decoration: none; */
+    font-size: 20px;
 }
 
 ::-webkit-scrollbar {
@@ -30,7 +30,12 @@ body::-webkit-scrollbar {
 }
 
 h1, h2, h3, h4, h5, h6{
-    font-family: 'Aclonica', sans-serif;
+    font-family: 'Poppins', sans-serif;
+}
+
+a{
+
+    color: #c8a47e;
 }
 
 #topnav {
@@ -98,7 +103,7 @@ h1, h2, h3, h4, h5, h6{
 
 /* header */
 header {
-    background: url('/assets/images/bg.jpg');
+    background: url('/assets/images/bg2.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -114,13 +119,24 @@ header {
 header>div>.content {
     height: max(100vh, 300px);
     text-align: center;
-    color: rgb(25, 0, 255);
+    color: rgb(223, 223, 224);
     font-size: min(5vmin, 40px);
     padding: 20px;
 }
 
+header .title{
+    font-size: min(10vmin, 80px);
+}
+
+header .motto{
+    font-size: min(5vmin, 40px);
+    padding: 20px;
+
+}
+
 main {
-    background-color: hsl(30.81081081081082, 40.217391304347814%, 63.921568627450974%, 1);
+    /* background-color: hsl(30.81081081081082, 40.217391304347814%, 63.921568627450974%, 1); */
+    background-color: #c8a47e;
     text-align: center;
     overflow: hidden;
 }
@@ -165,9 +181,13 @@ footer>div>div {
 }
 
 footer>div>div>a>img {
-    width: 100px;
+    width: min(200px, 100%);
     margin: 0 auto;
     display: block;
+}
+
+.logo.fb{
+    margin: 30px auto;
 }
 
 .logo.fb > a > svg > path{
