@@ -60,7 +60,7 @@ a {
 }
 
 .logo>a>img {
-    width: 100px;
+    width: 150px;
 }
 
 #menu {
@@ -131,10 +131,10 @@ header .title {
     font-size: min(10vmin, 80px);
 }
 
-header .motto {
+/* header .motto {
     font-size: min(max(8vmin, 30px), 50px);
     padding: 20px;
-}
+} */
 
 main {
     /* background-color: hsl(30.81081081081082, 40.217391304347814%, 63.921568627450974%, 1); */
@@ -155,33 +155,41 @@ section>div>h2 {
 }
 
 /* haircut */
-.haircut-section {
+.gallery-section {
     background-image: url('/assets/images/cork-board.png');
     background-size: 100px;
     background-repeat: repeat;
     text-align: center;
 }
 
-
-.haircut-section a {
-    color: #000;
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: auto;
 }
 
-.haircut-section img {
-    width: 200px;
+.gallery img {
+    width: 100%;
+    height: auto;
     height: 250px;
     object-fit: cover;
 }
 
-.cards p {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 1s ease;
+/* .gallery{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
-.cards p.open {
-    max-height: 500px;
-}
+.gallery>*{
+    margin: 10px;
+} */
+
+/* .gallery-section img {
+    width: 200px;
+    height: 250px;
+    object-fit: cover;
+} */
 
 /* maps */
 .location-section {

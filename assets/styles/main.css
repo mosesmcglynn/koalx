@@ -43,7 +43,7 @@
 }
 
 .overlay {
-    backdrop-filter: blur(2px) sepia(.1) grayscale(10%) brightness(20%);
+    backdrop-filter:brightness(40%);
     width: 100%;
     height: max(100vh, 300px);
     position: absolute;
@@ -95,6 +95,7 @@
     text-align: center;
     justify-content: center;
     align-items: center;
+    justify-items: center;
 }
 
 .icons{
