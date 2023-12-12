@@ -196,13 +196,13 @@ section>div>h2 {
 
 .gallery-slider button {
     position: absolute;
-    top: 50%;
     z-index: 100;
     background-color: transparent;
     border: none;
     outline: none;
     cursor: pointer;
     width: 100px;
+    height: 100px;
 }
 
 .gallery-slider button svg {
@@ -215,14 +215,12 @@ section>div>h2 {
 }
 
 
-.prev {
+.nav-button.prev {
     left: 10px;
-    transform: translateY(-50%);
 }
 
-.next {
+.nav-button.next {
     right: 10px;
-    transform: translateY(-50%);
 }
 
 .gallery-slider .galleryimg img {
@@ -233,14 +231,6 @@ section>div>h2 {
 
 .gallery-slider .galleryimg.active {
     display: flex;
-}
-
-.nav-button.prev {
-    left: 10px;
-}
-
-.nav-button.next {
-    right: 10px;
 }
 
 .gallery-slider button.exit {
@@ -336,12 +326,16 @@ section>div>h2 {
     position: relative;
 }
 
-.haircut-section .price{
+.haircut-section .price {
     font: 1em sans-serif;
 }
 
-.haircut-section >div>div{
+.haircut-section>div>div {
     padding: 30px 0;
+}
+
+.haircut-section>div>div>div {
+    margin: 10px;
 }
 
 .haircut-section img {
@@ -438,6 +432,10 @@ footer>div>div>a>img {
         overflow: hidden;
         transition: max-height 1s ease;
     }
+
+    .nav-button.next, .nav-button.prev {
+        bottom: 10px;
+    }
 }
 
 /* For 2 columns, viewport should be at least 540px */
@@ -460,4 +458,3 @@ footer>div>div>a>img {
         grid-template-columns: repeat(4, 1fr);
     }
 }
-
