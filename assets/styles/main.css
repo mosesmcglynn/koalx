@@ -64,6 +64,11 @@
     margin: 0 auto;
 }
 
+.container-4 {
+    width: 80%;
+    margin: 0 auto;
+}
+
 .fs-1 {
     font-size: calc((2.8 - 1) * 1.3vmin + 1rem);
 }
