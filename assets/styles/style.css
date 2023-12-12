@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Aclonica&family=Lato&family=Montserrat+Alternates:wght@700&display=swap');
 
 * {
     margin: 0;
@@ -33,11 +34,19 @@ h4,
 h5,
 h6 {
     font-family: 'Poppins', sans-serif;
+    /* font-family: 'Montserrat Alternates', sans-serif; */
+
 }
 
 a {
     color: #fff;
+    /* font-family: 'Lato', sans-serif; */
+
 }
+
+/* p{
+    font-family: 'Lato', sans-serif;
+} */
 
 #topnav {
     background: rgba(0, 0, 0, 0);
@@ -148,7 +157,7 @@ section>div>h2 {
     padding: 30px;
 }
 
-/* haircut */
+/* gallery */
 .gallery-section {
     background-image: url('/assets/images/bg/cork-board.png');
     background-size: 100px;
@@ -318,8 +327,32 @@ section>div>h2 {
     padding: 50px;
 }
 
+/* haircut */
+.haircut-section {
+    background-image: url('/assets/images/bg/cork-board.png');
+    background-size: 100px;
+    background-repeat: repeat;
+    text-align: center;
+    position: relative;
+}
+
+.haircut-section .price{
+    font: 1em sans-serif;
+}
+
+.haircut-section >div>div{
+    padding: 30px 0;
+}
+
+.haircut-section img {
+    width: 200px;
+    height: 250px;
+    object-fit: cover;
+}
+
 /* FOOTER */
 footer {
+    /* background-image: url('/assets/images/bg/tactile_noise.png'); */
     background-color: #000;
     color: #fff;
     text-align: center;
